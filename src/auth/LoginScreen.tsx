@@ -1,16 +1,19 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { Button, Input } from 'react-native-elements';
+import { Button } from 'react-native-elements';
 import styled from 'styled-components/native';
+import { StyledInput } from '../common/StyledInput';
+import { StyledButton } from '../common/StyledButton';
+import { StyledTextButton } from '../common/StyledTextButton';
 
 export const LoginScreen = () => {
     const navigation = useNavigation();
     return (
         <Root>
             <TopBar>
-                <TextButton title="Назад" onPress={navigation.goBack} />
+                <StyledTextButton title="Назад" onPress={navigation.goBack} />
                 <TextButtonBig title="Вход" />
-                <TextButton title="Пропустить" />
+                <StyledTextButton title="Пропустить" />
             </TopBar>
             <InputsWrapper>
                 <StyledInput
@@ -27,7 +30,7 @@ export const LoginScreen = () => {
                     secureTextEntry
                 />
                 <TextButtonWrapper>
-                    <TextButton title="Забыли пароль?" />
+                    <StyledTextButton title="Забыли пароль?" />
                 </TextButtonWrapper>
             </InputsWrapper>
             <StyledButton title="Войти" />
@@ -50,19 +53,12 @@ const TopBar = styled.View`
     padding-horizontal: 24px;
 `;
 
-const TextButton = styled(Button).attrs(() => ({
-    titleStyle: {
-        color: 'white',
-        fontSize: 12,
-    },
-    type: 'clear',
-}))``;
-
 const TextButtonBig = styled(Button).attrs(() => ({
     titleStyle: {
         color: 'white',
         fontSize: 20,
         fontWeight: '700',
+        fontFamily: 'NunitoSans-Bold',
     },
     type: 'clear',
 }))``;
@@ -72,44 +68,7 @@ const InputsWrapper = styled.View`
     justify-content: center;
 `;
 
-const StyledInput = styled(Input).attrs(() => ({
-    containerStyle: {
-        paddingHorizontal: 0,
-        width: 313,
-    },
-    inputContainerStyle: {
-        width: 313,
-        height: 50,
-        borderColor: 'white',
-        borderWidth: 1,
-        borderRadius: 56,
-        paddingHorizontal: 16,
-    },
-    inputStyle: { color: 'white', fontSize: 12 },
-    labelStyle: {
-        color: 'white',
-        fontSize: 12,
-        fontWeight: 'normal',
-        paddingBottom: 4,
-    },
-    selectionColor: 'white',
-    placeholderTextColor: '#FFFFFF33',
-}))``;
-
 const TextButtonWrapper = styled.View`
     align-items: flex-end;
     margin-top: 32px;
 `;
-
-const StyledButton = styled(Button).attrs(() => ({
-    buttonStyle: {
-        width: 313,
-        height: 50,
-        borderRadius: 56,
-        marginVertical: 8,
-        backgroundColor: 'white',
-    },
-    titleStyle: {
-        color: 'black',
-    },
-}))``;

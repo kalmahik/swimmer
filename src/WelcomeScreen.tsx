@@ -1,23 +1,33 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { Button } from 'react-native-elements';
 import styled from 'styled-components/native';
+import { StyledTextButton } from './common/StyledTextButton';
+import { StyledButton } from './common/StyledButton';
+import { COLORS } from './constants';
 
 export const WelcomeScreen = () => {
     const navigation = useNavigation();
+
     const onSignInPress = () => {
         navigation.navigate('Login');
+    };
+
+    const onSignUpPress = () => {
+        navigation.navigate('Registration');
     };
 
     return (
         <Root source={require('./assets/background.png')}>
             <TopBar>
-                <TextButton title="Пропустить" />
+                <StyledTextButton title="Пропустить" />
             </TopBar>
             <Logo source={require('./assets/swimmer.png')} />
             <ButtonsWrapper>
                 <StyledButton title="Войти" onPress={onSignInPress} />
-                <StyledButtonTransparent title="Регистрация" />
+                <StyledButtonTransparent
+                    title="Регистрация"
+                    onPress={onSignUpPress}
+                />
             </ButtonsWrapper>
         </Root>
     );
@@ -46,36 +56,18 @@ const ButtonsWrapper = styled.View`
     justify-content: flex-end;
 `;
 
-const TextButton = styled(Button).attrs(() => ({
-    titleStyle: {
-        color: 'white',
-        fontSize: 12,
-    },
-    type: 'clear',
-}))``;
-
-const StyledButton = styled(Button).attrs(() => ({
-    buttonStyle: {
-        width: 313,
-        height: 50,
-        borderRadius: 56,
-        marginVertical: 8,
-        backgroundColor: 'white',
-    },
-    titleStyle: {
-        color: 'black',
-    },
-}))``;
-
 const StyledButtonTransparent = styled(StyledButton).attrs(() => ({
     buttonStyle: {
         borderWidth: 1,
         borderColor: 'white',
         height: 50,
         borderRadius: 56,
-        backgroundColor: '#FFFFFF24',
+        backgroundColor: COLORS.WHITE_TRANSPARENT,
     },
     titleStyle: {
         color: 'white',
+        fontSize: 16,
+        fontWeight: '400',
+        fontFamily: 'NunitoSans-Bold',
     },
 }))``;
