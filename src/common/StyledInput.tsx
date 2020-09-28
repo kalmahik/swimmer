@@ -27,5 +27,5 @@ export const StyledInput = styled(Input).attrs(() => ({
     },
     selectionColor: 'white',
     placeholderTextColor: COLORS.WHITE_TRANSPARENT,
-    autoCorrect: 'false',
+    autoCorrect: false,
 }))``;

@@ -9,17 +9,21 @@ export const WelcomeScreen = () => {
     const navigation = useNavigation();
 
     const onSignInPress = () => {
-        navigation.navigate('Login');
+        navigation.navigate('LoggedOut', { screen: 'Login' });
     };
 
     const onSignUpPress = () => {
-        navigation.navigate('Registration');
+        navigation.navigate('LoggedOut', { screen: 'Registration' });
+    };
+
+    const onSkip = () => {
+        navigation.navigate('LoggedIn');
     };
 
     return (
         <Root source={require('./assets/background.png')}>
             <TopBar>
-                <StyledTextButton title="Пропустить" />
+                <StyledTextButton title="Пропустить" onPress={onSkip} />
             </TopBar>
             <Logo source={require('./assets/swimmer.png')} />
             <ButtonsWrapper>

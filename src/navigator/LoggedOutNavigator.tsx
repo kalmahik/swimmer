@@ -1,11 +1,9 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { LoginScreen } from './auth/LoginScreen';
-import { WelcomeScreen } from './WelcomeScreen';
-import { RegistrationScreen } from './auth/RegistrationScreen';
+import { LoginScreen } from '../auth/LoginScreen';
+import { RegistrationScreen } from '../auth/RegistrationScreen';
 
 export type LoggedOutParam = {
-    Welcome: undefined;
     Login: undefined;
     Registration: undefined;
 };
@@ -13,8 +11,7 @@ export type LoggedOutParam = {
 export const LoggedOutNavigator = () => {
     const Stack = createStackNavigator<LoggedOutParam>();
     return (
-        <Stack.Navigator initialRouteName="Welcome" headerMode="none">
-            <Stack.Screen name="Welcome" component={WelcomeScreen} />
+        <Stack.Navigator initialRouteName="Login" headerMode="none">
             <Stack.Screen name="Login" component={LoginScreen} />
             <Stack.Screen name="Registration" component={RegistrationScreen} />
         </Stack.Navigator>

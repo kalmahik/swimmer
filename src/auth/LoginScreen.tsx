@@ -8,12 +8,17 @@ import { StyledTextButton } from '../common/StyledTextButton';
 
 export const LoginScreen = () => {
     const navigation = useNavigation();
+
+    const onSkip = () => {
+        navigation.navigate('LoggedInNavigator');
+    };
+
     return (
         <Root>
             <TopBar>
                 <StyledTextButton title="Назад" onPress={navigation.goBack} />
                 <TextButtonBig title="Вход" />
-                <StyledTextButton title="Пропустить" />
+                <StyledTextButton title="Пропустить" onPress={onSkip} />
             </TopBar>
             <InputsWrapper>
                 <StyledInput
