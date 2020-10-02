@@ -5,6 +5,7 @@ import styled from 'styled-components/native';
 import { StyledInput } from '../common/StyledInput';
 import { StyledButton } from '../common/StyledButton';
 import { StyledTextButton } from '../common/StyledTextButton';
+import { SocialIcons } from './ui/SocialIcons';
 
 export const LoginScreen = () => {
     const navigation = useNavigation();
@@ -17,7 +18,7 @@ export const LoginScreen = () => {
         <Root>
             <TopBar>
                 <StyledTextButton title="Назад" onPress={navigation.goBack} />
-                <TextButtonBig title="Вход" />
+                <Title title="Вход" />
                 <StyledTextButton title="Пропустить" onPress={onSkip} />
             </TopBar>
             <InputsWrapper>
@@ -37,6 +38,7 @@ export const LoginScreen = () => {
                 <TextButtonWrapper>
                     <StyledTextButton title="Забыли пароль?" />
                 </TextButtonWrapper>
+                <SocialIcons />
             </InputsWrapper>
             <StyledButton title="Войти" />
         </Root>
@@ -58,7 +60,7 @@ const TopBar = styled.View`
     padding-horizontal: 24px;
 `;
 
-const TextButtonBig = styled(Button).attrs(() => ({
+const Title = styled(Button).attrs(() => ({
     titleStyle: {
         color: 'white',
         fontSize: 20,
@@ -71,9 +73,11 @@ const TextButtonBig = styled(Button).attrs(() => ({
 const InputsWrapper = styled.View`
     flex: 1;
     justify-content: center;
+    align-items: center;
 `;
 
 const TextButtonWrapper = styled.View`
     align-items: flex-end;
-    margin-top: 32px;
+    margin-vertical: 32px;
+    width: 313px;
 `;

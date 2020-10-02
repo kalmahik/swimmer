@@ -4,6 +4,9 @@ import styled from 'styled-components/native';
 import { StyledInput } from '../common/StyledInput';
 import { StyledTextButton } from '../common/StyledTextButton';
 import { StyledButton } from '../common/StyledButton';
+import { RoundButton } from './ui/RoundButton';
+import { SocialIcon } from 'react-native-elements';
+import {SocialIcons} from "./ui/SocialIcons";
 
 export const RegistrationScreen = () => {
     const navigation = useNavigation();
@@ -51,6 +54,7 @@ export const RegistrationScreen = () => {
                     autoCompleteType="tel"
                     textContentType="username"
                 />
+                <SocialIcons />
                 <StyledButton title="Создать аккаунт" />
             </InputsWrapper>
         </Root>
